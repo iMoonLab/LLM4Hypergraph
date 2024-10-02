@@ -5,9 +5,9 @@ This repository contains the source for the paper "Beyond Graphs: Can Large Lang
 ## Introduction
 In this repository, we provide the code for generating hypergraphs and tasks for the experiments in the paper. We also provide the code for evaluating the performance of LLMs like ERNIE-Lite-8K, ERNIE-Speed-128K, Qwen-Long, LLaMA3-8B, GPT-3.5-Turbo, and GPT-4o on hypergraph tasks. 
 
-<div style="text-align: center;">
+<center>
   <img src="doc/cmp.png" alt="comparison" style="width:50%;"/>
-</div>
+</center>
 
 We intoduce the following three types of tasks:
 
