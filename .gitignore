@@ -4,7 +4,6 @@ hyper_tasks/
 hyper_tasks_low/
 hypergraphs
 ernie-lite-8k_low/
-*.png
 ablation/
 cot_v_Iso/
 ernie-lite-8k/
