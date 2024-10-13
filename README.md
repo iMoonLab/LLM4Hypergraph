@@ -1,5 +1,5 @@
 # LLM4Hypergraph
-This repository contains the source for the paper "Beyond Graphs: Can Large Language Models Comprehend Hypergraphs?" published in xxx by xxx, xxx, xxx. This paper is avaiable at [here]().
+This repository contains the source for the paper "Beyond Graphs: Can Large Language Models Comprehend Hypergraphs?". This paper is avaiable at [here]().
 ![benchmark](doc/benchmark.png)
 
 ## Introduction
@@ -7,7 +7,7 @@ In this repository, we provide the code for generating hypergraphs and tasks for
 
 
 <div align="center" id="cmp"> 
-  <img src="doc/cmp.png" alt="comparison" width="50%"/>
+  <img src="doc/cmp.jpg" alt="comparison" width="50%"/>
 
   &#xa0;
 
@@ -87,7 +87,13 @@ python ./eval_LLM.py
 
 
 ## Citation
+If you find our work useful in your research, please consider citing:
+
+```bibtex
 xxx
+```
 
 
+# Contact
+LLM4Hypergraph is maintained by [iMoon-Lab](http://moon-lab.tech/), Tsinghua University. If you have any questions, please feel free to contact us via email: [Yifan Feng](mailto:evanfeng97@gmail.com), [Chengwu Yang](mailto:slamdunkycw@gmail.com), and [Xingliang Hou](mailto:HouXL@stu.xjtu.edu.cn).
 
