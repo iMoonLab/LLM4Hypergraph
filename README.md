@@ -181,9 +181,9 @@ Response: To determine the number of hyperedges in the given hypergraph G, we ne
     4.  (v1, v5)
         Let's count these: 
     1.  (v1, v2, v3, v4) - This is one hyperedge connecting vertices v1, v2, v3, and v4. 
-    2.  (v0, v1, v2, v3, v4, v5) - This is another hyperedge connecting vertices   v0, v1, v2, v3, v4, and v5  . 
-    3.  (v0, v4) - This is a third hyperedge connecting vertices v0 and v4  . 
-    4.  (v1, v5) - This is a fourth hyperedge connecting vertices v1 and v5  . 
+    2.  (v0, v1, v2, v3, v4, v5) - This is another hyperedge connecting vertices v0, v1, v2, v3, v4, and v5. 
+    3.  (v0, v4) - This is a third hyperedge connecting vertices v0 and v4. 
+    4.  (v1, v5) - This is a fourth hyperedge connecting vertices v1 and v5. 
         So, there are four distinct hyperedges listed. 
 Ans: [4]
 Ground Truth: Ans:[4]
