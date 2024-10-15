@@ -154,28 +154,28 @@ pip install -r requirements.txt
 python ./eval_LLM.py
 ```
 
-### Examples of Prompts under Different Settings
-#### ZERO SHOT
+## Examples of Prompts under Different Settings
+### ZERO SHOT
 ``` plaintext
 xxx
 ```
 
-#### ZERO-HYPER-COT
+### ZERO-HYPER-COT
 ``` plaintext
 xxx
 ```
 
-#### FEW SHOT
+### FEW SHOT
 ``` plaintext
 xxx
 ```
 
-#### COT
+### COT
 ``` plaintext
 xxx
 ```
 
-#### COT-HYPER-BAG
+### COT-HYPER-BAG
 ``` plaintext
 xxx
 ```
