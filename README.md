@@ -1,5 +1,5 @@
 # LLM4Hypergraph
-This repository contains the source for the paper "Beyond Graphs: Can Large Language Models Comprehend Hypergraphs?". This paper is avaiable at [here]().
+This repository contains the source for the paper "Beyond Graphs: Can Large Language Models Comprehend Hypergraphs?". This paper is avaiable at [here](https://arxiv.org/abs/2410.10083).
 ![benchmark](doc/benchmark.png)
 
 ## Introduction
@@ -90,7 +90,15 @@ python ./eval_LLM.py
 If you find our work useful in your research, please consider citing:
 
 ```bibtex
-xxx
+@misc{feng2024graphslargelanguagemodels,
+      title={Beyond Graphs: Can Large Language Models Comprehend Hypergraphs?}, 
+      author={Yifan Feng and Chengwu Yang and Xingliang Hou and Shaoyi Du and Shihui Ying and Zongze Wu and Yue Gao},
+      year={2024},
+      eprint={2410.10083},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2410.10083}, 
+}
 ```
 
 
