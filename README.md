@@ -102,7 +102,7 @@ Prompt: G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5 and a
 - Neighbor-Set Description (N-Set): Lists entire sets of vertices connected by each hyperedge, for example, ''$(v_1, v_2, v_3)$.''
 Example:
 ```plaintext
-Prompt: In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5, and among hyperedges e0, e1, e2, and e3.\newline
+Prompt: In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5, and among hyperedges e0, e1, e2, and e3.
   The hyperedges in G are: (v1, v2, v3, v4), (v0, v1, v2, v3, v4, v5), (v0, v4), (v1, v5).
 ```
 - Raw Incidence Matrix Description (Inc-Mat): Uses an incidence matrix where each entry indicates the inclusion of a vertex in a hyperedge.
@@ -157,27 +157,83 @@ python ./eval_LLM.py
 ## Examples of Prompts under Different Settings
 ### ZERO SHOT
 ``` plaintext
-xxx
+Prompt: In an undirected hypergraph, (i, j, k) means that vertex i, vertex j, and vertex k are connected with an undirected hyperedge.G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5 and among hyperedges e0, e1, e2, and e3.
+    The hyperedges in G are: (v1, v2, v3, v4), (v0, v1, v2, v3, v4, v5), (v0, v4), (v1, v5).
+    Let's construct the hypergraph with the vertices and hyperedges first.
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans:" in the format like [10].
+A:
+Response: Ans:[4]
+Ground Truth: Ans:[4]
 ```
 
 ### ZERO-HYPER-COT
 ``` plaintext
-xxx
+Prompt: In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5 and among hyperedges e0, e1, e2, and e3. 
+    The hyperedges in G are: (v1, v2, v3, v4), (v0, v1, v2, v3, v4, v5), (v0, v4), (v1, v5). 
+    Let's construct the hypergraph with the vertices and hyperedges first. 
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans:" in the format like [10]. 
+A: Let's think hyperedges connected by vertices then vertices connected by hyperedges. 
+Response: To determine the number of hyperedges in the given hypergraph G, we need to count each unique hyperedge listed. 
+        Given hyperedges: 
+    1.  (v1, v2, v3, v4)
+    2.  (v0, v1, v2, v3, v4, v5)
+    3.  (v0, v4)
+    4.  (v1, v5)
+        Let's count these: 
+    1.  (v1, v2, v3, v4) - This is one hyperedge connecting vertices v1, v2, v3, and v4. 
+    2.  (v0, v1, v2, v3, v4, v5) - This is another hyperedge connecting vertices   v0, v1, v2, v3, v4, and v5  . 
+    3.  (v0, v4) - This is a third hyperedge connecting vertices v0 and v4  . 
+    4.  (v1, v5) - This is a fourth hyperedge connecting vertices v1 and v5  . 
+        So, there are four distinct hyperedges listed. 
+Ans: [4]
+Ground Truth: Ans:[4]
 ```
 
 ### FEW SHOT
 ``` plaintext
-xxx
+Prompt: Example: In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, and v17 and among hyperedges e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, and e19.
+    The hyperedges in G are: (v8, v16, v17), (v11, v14, v17), (v4, v15), (v1, v6, v15, v17), (v0, v11), (v2, v14), (v6, v11), (v3, v9, v15), (v5, v9),(v9, v10), (v7, v8, v15), (v0, v10), (v1, v11), (v7, v9), (v15, v16), (v9, v11, v12), (v4, v13), (v9, v12), (v2, v12), (v7, v14).
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans:" in the format like [10].
+A: Ans:[20].
+
+In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5 and among hyperedges e0, e1, e2, and e3.
+The hyperedges in G are: (v1, v2, v3, v4), (v0, v1, v2, v3, v4, v5), (v0, v4), (v1, v5). 
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans" in the format like [10]. 
+A:
+Response: Ans:[4]}
+Ground Truth: Ans:[4]
 ```
 
 ### COT
 ``` plaintext
-xxx
+Prompt: Example: In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, and v17 and among hyperedges e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, and e19. 
+    The hyperedges in G are: (v8, v16, v17), (v11, v14, v17), (v4, v15), (v1, v6, v15, v17), (v0, v11), (v2, v14), (v6, v11), (v3, v9, v15), (v5, v9), (v9, v10), (v7, v8, v15), (v0, v10), (v1, v11), (v7, v9), (v15, v16), (v9, v11, v12), (v4, v13), (v9, v12), (v2, v12), (v7, v14). 
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans:" in the format like [10]. 
+A: Ans:[20]. The hyperedges are e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, and e19.
+
+In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5 and among hyperedges e0, e1, e2, and e3. 
+The hyperedges in G are: (v1, v2, v3, v4), (v0, v1, v2, v3, v4, v5), (v0, v4), (v1, v5). 
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans" in the format like [10]. 
+A:
+Response: Ans:[4]. The hyperedges are e0, e1, e2, e3.
+Ground Truth: Ans:[4]
 ```
 
 ### COT-HYPER-BAG
 ``` plaintext
-xxx
+Prompt: Example: In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, and v17 and among hyperedges e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, and e19. 
+    The hyperedges in G are: (v8, v16, v17), (v11, v14, v17), (v4, v15), (v1, v6, v15, v17), (v0, v11), (v2, v14), (v6, v11), (v3, v9, v15), (v5, v9), (v9, v10), (v7, v8, v15), (v0, v10), (v1, v11), (v7, v9), (v15, v16), (v9, v11, v12), (v4, v13), (v9, v12), (v2, v12), (v7, v14). 
+    Let's construct the hypergraph with the vertices and hyperedges first. 
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans:" in the format like [10]. 
+A: Ans:[20]. The hyperedges are e0, e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11, e12, e13, e14, e15, e16, e17, e18, and e19. 
+In an undirected hypergraph, (i, j, k) means that vertex i, vertex j and vertex k are connected with an undirected hyperedge. G describes a hypergraph among vertices v0, v1, v2, v3, v4, and v5 and among hyperedges e0, e1, e2, and e3.
+
+The hyperedges in G are: (v1, v2, v3, v4), (v0, v1, v2, v3, v4, v5), (v0, v4), (v1, v5). 
+Let's construct the hypergraph with the vertices and hyperedges first. 
+Q: How many hyperedges are in this hypergraph? list the answers after "Ans" in the format like [10]. 
+A:
+Response: Ans:[4]. The hyperedges are e0, e1, e2, e3. 
+Ground Truth: Ans:[4]
 ```
 
 
