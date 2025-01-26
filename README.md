@@ -1,5 +1,5 @@
 # LLM4Hypergraph
-This repository contains the source for the paper "Beyond Graphs: Can Large Language Models Comprehend Hypergraphs?". This paper is avaiable at [here](https://arxiv.org/abs/2410.10083).
+This repository contains the source for the paper "Beyond Graphs: Can Large Language Models Comprehend Hypergraphs?" published in ICLR 2025 by [Yifan Feng](https://fengyifan.site/), Chengwu Yang, Xingliang Hou, Shaoyi Du, Shihui Ying, Zongze Wu, and Yue Gao*. This paper is available at [here](https://arxiv.org/abs/2410.10083).
 ![benchmark](doc/benchmark.png)
 
 ## Introduction
